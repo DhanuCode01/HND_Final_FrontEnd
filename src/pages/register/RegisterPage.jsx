@@ -43,7 +43,7 @@ export default function RegisterPage() {
     return (
         <div className="bg-picture h-screen w-full flex justify-center items-center ">
             <form onSubmit={handleOnSubmit}>
-                <div className="w-[400px] h-[600px] backdrop-blur-2xl rounded-2xl flex flex-col justify-center items-center relative ">
+                <div className="w-[400px] h-[600px] backdrop-blur-2xl rounded-2xl flex flex-col justify-center items-center relative font-['Roboto'] ">
                     <img src="/logo.png" alt="logo" className="w-[100px] h-[100px] absolute top-1 object-cover" />
                     <input type="text" placeholder="First Name" className="mt-6 w-[300px] bg-transparent border-b-2 border-black text-black text-xl outline-none" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                     <input type="text" placeholder="Last Name" className="mt-6 w-[300px] bg-transparent border-b-2 border-black text-black text-xl outline-none" value={lastName} onChange={(e) => setLastName(e.target.value)} />

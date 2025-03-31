@@ -52,9 +52,9 @@ export default function LoginPage(){
     }
 
     return(
-        <div className="bg-picture w-full h-screen flex justify-center items-center ">
+        <div className="bg-picture w-full h-screen flex justify-center items-center  ">
                 <form onSubmit={handleOnSubmit}>
-                <div className="w-[400px] h-[400px] backdrop-blur-2xl rounded-2xl flex flex-col justify-center items-center relative">
+                <div className="w-[400px] h-[400px] backdrop-blur-2xl rounded-2xl flex flex-col justify-center items-center relative font-['Roboto']">
                             <img src="/logo.png" alt="logo" className="w-[100px] h=[100px] absolute top-1 object-cover"/>
                             <input type="email" placeholder="Email" className="mt-6 w-[300px] h=[50px] bg-transparent border-b-2 border-black text-black text-xl outline-none"
                                         value={email}
