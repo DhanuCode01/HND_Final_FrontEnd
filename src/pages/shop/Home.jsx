@@ -17,7 +17,6 @@ export default function Home(){
             .then((res)=>{
 
                 console.log(res.data)
-
                 setItems(res.data)
                 setState("success")
             }).catch((err)=>{
@@ -37,7 +36,10 @@ export default function Home(){
                 {State=="success" &&
                     items.map((item)=>{
                         return(
+                            
+                            
                             <ProductCard key={item.key} item={item}/>
+                           
                         )
                     })}
         </div>

@@ -16,10 +16,10 @@ export default function ShopPage(){
             <div className="w-full h-screen bg-primary ">
                        <Routes path="/*">
                             <Route path="/"  element={<Home/>}></Route>
-                            <Route path="/men"  element={<Men/>}></Route>
+                            {/* <Route path="/men"  element={<Men/>}></Route>
                             <Route path="/women"  element={<Women/>}></Route>
                             <Route path="/kids"  element={<Kids/>}></Route>
-                            <Route path="/*"  element={<Error/>}></Route>
+                            <Route path="/*"  element={<Error/>}></Route> */}
                        </Routes>
                     </div>
         </div>
