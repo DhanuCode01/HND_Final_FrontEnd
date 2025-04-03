@@ -1,9 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "../../components/Header";
-import Men from "./Men.jsx"
-import Women from "./Women.jsx"
-import Kids from "./Kids.jsx"
-import Error from "./Error.jsx"
+import RentPage from "../rent/RentPAge.jsx";
+import ShopPage from "../shop/ShopPage.jsx";
 
 export default function HomePage(){
     return(
@@ -11,10 +9,8 @@ export default function HomePage(){
             <Header/>
                     <div className="w-full h-screen bg-primary ">
                        <Routes path="/*">
-                            <Route path="/men"  element={<Men/>}></Route>
-                            <Route path="/women"  element={<Women/>}></Route>
-                            <Route path="/kids"  element={<Kids/>}></Route>
-                            <Route path="/*"  element={<Error/>}></Route>
+                            <Route path="/rent/*"  element={<RentPage/>}></Route>                         
+                            <Route path="/*"  element={<ShopPage/>}></Route>
                        </Routes>
                     </div>
         </>

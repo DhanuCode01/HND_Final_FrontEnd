@@ -33,10 +33,11 @@ export default function LoginPage(){
             console.log(user)
 
             localStorage.setItem("token",res.data.token)    /* save user token in localStorage */
+            console.log(user.type)
             
 
              if(user.type === "Admin"){
-                navigate("/admin/");
+                navigate("/admin/items");
             }else{
                 navigate("/");
             }
