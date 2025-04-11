@@ -26,12 +26,12 @@ export default function MediaUpload(file){                  //create function to
 
 
 
-            superbase.storage.from("images").upload(fileName,file,{     //"images"= bucket name  ,   //file.name=The name under which the image in the super base should be saved     ,       //file=The file obtained for upload
+            superbase.storage.from("finalimage").upload(fileName,file,{     //"images"= bucket name  ,   //file.name=The name under which the image in the super base should be saved     ,       //file=The file obtained for upload
                 cacheControl:'3600',
                 upsert:false,
             }).then(()=>{                       //is successed
 
-                const publicURL=superbase.storage.from("images").getPublicUrl(fileName).data.publicUrl;          //get uploaded image URL
+                const publicURL=superbase.storage.from("finalimage").getPublicUrl(fileName).data.publicUrl;          //get uploaded image URL
                 resolve(publicURL);
                 console.log(publicURL)
             }).catch(()=>{                  //is not successed

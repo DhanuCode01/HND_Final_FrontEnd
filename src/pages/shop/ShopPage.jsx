@@ -13,7 +13,7 @@ export default function ShopPage(){
     return(
         <div>
             <ShopHeader/>
-            <div className="w-full h-screen bg-primary ">
+            <div className="w-full h-full bg-primary ">
                        <Routes path="/*">
                             <Route path="/"  element={<Home/>}></Route>
                             {/* <Route path="/men"  element={<Men/>}></Route>

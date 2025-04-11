@@ -97,47 +97,45 @@ export default  function UpdateItem() {
 
 
   return (
-    <div className="w-full h-full flex flex-col items-center">          {/* create item data update  form */}
-      <h1>Update Item</h1>
-                <div className="w-[400px] border flex flex-col ">
-                <input  disabled onChange={(e)=>{setProductKey(e.target.value)}} value={productKey} type="text" placeholder="product Key"/>
-                              <input onChange={(e)=>{setProductName(e.target.value)}} value={productName} type="text" placeholder="product Name"/>
-                              <input onChange={(e)=>{setProductQuantity(e.target.value)}} value={productQuantity} type="Number" placeholder="product Quantity"/>
-                              <input onChange={(e)=>{setProductPrice(e.target.value)}} value={productPrice} type="Number" placeholder="product Price"/>
-                              <select value={productCategory} onChange={(e)=>{setProductCategory(e.target.value)}}>
-                                    <option key={"Casual Shirts"}>Casual Shirts</option>
-                                    <option key={"Formal Shirts"}>Formal Shirts</option>
-                                    <option key={"T-Shirts"}>T-Shirts</option>
-                                    <option key={"Trousers"}>Trousers</option>
-                                    <option key={"Inner Waear"}>Inner Waear</option>
-                                    <option key={"Tops"}>Tops</option>
-                                    <option key={"Sarees"}>Sarees</option>
-                                    <option key={"School Uniform"}>School Uniform</option>
-                              </select>
-                              <select value={productCustomerType} onChange={(e)=>{setProductCustomerType(e.target.value)}}>
-                                    <option key={"Men"}>Men</option>
-                                    <option key={"Women"}>Women</option>
-                                    <option key={"Kids"}>Kids</option>
-                              </select>
-                              <select value={productDimentions} onChange={(e)=>{setProductDimentions(e.target.value)}}>
-                                    <option key={"Small"}>Small</option>
-                                    <option key={"Medium"}>Medium</option>
-                                    <option key={"Large"}>Large</option>
-                                    <option key={"XL"}>XL</option>
-                                    <option key={"XXL"}>XXL</option>
-                              </select>
-                              <select value={productAvailability} onChange={(e)=>{setProductAvailability(e.target.value)}}>
-                                    <option key={"true"}>True</option>
-                                    <option key={"False"}>False</option>
-                              </select>
-                              <textarea onChange={(e)=>{setProductDiscription(e.target.value)}} values={productDiscription} type="text" placeholder="product Discription"/>
-                              <input  type="file"  multiple onChange={(e)=>{setproductImages(e.target.files)}} />
-                              
-                              <button onClick={handleUpdateItem}>Update Item</button>      {/* update button */}
-                              <button onClick={()=>{navigate("/admin/items")}}>cancel</button>     {/* navigate to click navigate button */}
-
-                </div>
-    </div>
+            <div className="w-full h-full flex flex-col items-center p-6">
+            <h1 className="text-2xl font-bold mb-4">Update Item</h1>
+            <div className="w-full max-w-md border border-gray-300 p-6 rounded-lg shadow-lg flex flex-col gap-4 bg-white">
+                <input className="border p-2 rounded bg-gray-100" disabled value={productKey} type="text" placeholder="Product Key" />
+                <input className="border p-2 rounded" onChange={(e) => setProductName(e.target.value)} value={productName} type="text" placeholder="Product Name" />
+                <input className="border p-2 rounded" onChange={(e) => setProductQuantity(e.target.value)} value={productQuantity} type="number" placeholder="Product Quantity" />
+                <input className="border p-2 rounded" onChange={(e) => setProductPrice(e.target.value)} value={productPrice} type="number" placeholder="Product Price" />
+                <select className="border p-2 rounded" value={productCategory} onChange={(e) => setProductCategory(e.target.value)}>
+                    <option>Casual Shirts</option>
+                    <option>Formal Shirts</option>
+                    <option>T-Shirts</option>
+                    <option>Trousers</option>
+                    <option>Inner Wear</option>
+                    <option>Tops</option>
+                    <option>Sarees</option>
+                    <option>School Uniform</option>
+                </select>
+                <select className="border p-2 rounded" value={productCustomerType} onChange={(e) => setProductCustomerType(e.target.value)}>
+                    <option>Men</option>
+                    <option>Women</option>
+                    <option>Kids</option>
+                </select>
+                <select className="border p-2 rounded" value={productDimentions} onChange={(e) => setProductDimentions(e.target.value)}>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                </select>
+                <select className="border p-2 rounded" value={productAvailability} onChange={(e) => setProductAvailability(e.target.value)}>
+                    <option value={true}>True</option>
+                    <option value={false}>False</option>
+                </select>
+                <textarea className="border p-2 rounded" onChange={(e) => setProductDiscription(e.target.value)} value={productDiscription} placeholder="Product Description"></textarea>
+                <input className="border p-2 rounded" type="file" multiple onChange={(e) => setproductImages(e.target.files)} />
+                <button className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600" onClick={handleUpdateItem}>Update Item</button>
+                <button className="bg-gray-500 text-white py-2 rounded hover:bg-gray-600" onClick={() => navigate("/admin/items")}>Cancel</button>
+            </div>
+        </div>
   )
 }
 
