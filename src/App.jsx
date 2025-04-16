@@ -5,22 +5,24 @@ import LoginPage from './pages/login/LoginPage.jsx'
 import RegisterPage from './pages/register/RegisterPage.jsx'
 import HomePage from './pages/home/HomePage.jsx'
 import AdminPage from './pages/admin/AdminPage.jsx'
-
+import GetStart from './pages/start/GetStart.jsx'
 
 function App() {
  
 
   return (
     
-     <BrowserRouter>
+    <BrowserRouter>
             <Toaster position='top-right'/>
             <Routes>
               <Route path="/login" element={<LoginPage/>}/>
               <Route path="/admin/*" element={<AdminPage/>}/>
               <Route path="/register" element={<RegisterPage/>} />
+              <Route path="/start" element={<GetStart/>} />
               <Route path="/*" element={<HomePage/>}/>
             </Routes>
-     </BrowserRouter>
+     </BrowserRouter>  
+
    
   )
 }

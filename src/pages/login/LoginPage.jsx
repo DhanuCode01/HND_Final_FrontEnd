@@ -2,7 +2,7 @@ import "./LoginPage.css"
 import { useState } from "react"
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginPage(){
 
@@ -67,7 +67,18 @@ export default function LoginPage(){
                                         onChange={(e)=>{
                                             setPassword(e.target.value)
                                         }}/>
-                            <button className="my-8 w-[300px] h-[50px] bg-primary text-2xl text-black rounded-lg border-2 " >Login</button>
+                            <button className="mt-8 w-[300px] h-[50px] bg-primary text-2xl text-black rounded-lg border-2 " >Login</button>
+
+                            <p className="text-sm text-gray-700 ">
+                                 Don't have an account?{" "}
+                                        <Link
+                                             to="/register"
+                                             className="text-primary font-semibold hover:underline hover:text-blue-600 transition duration-200"
+                                            >
+                                             Register
+                                            </Link>
+                            </p>
+
                      
 
                 </div>
