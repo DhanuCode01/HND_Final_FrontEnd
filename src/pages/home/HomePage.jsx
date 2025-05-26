@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Header from "../../components/Header";
+import Header from "../../components/Header.jsx";
 import RentPage from "../rent/RentPAge.jsx";
 import ShopPage from "../shop/ShopPage.jsx";
 

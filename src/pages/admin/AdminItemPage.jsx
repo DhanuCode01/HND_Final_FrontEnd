@@ -70,8 +70,9 @@ export default function AdminItemPage() {
   return (
     <div className="h-full w-full bg-picture p-6  justify-center flex">
       {!itemLoaded && <div className="border-4 my-4 border-b-green-600 rounded-full animate-spin bg-0 w-[100px] h-[100px]"></div> }{/* If items are not loaded  */}
-      {itemLoaded && <div className="max-w-5xl mx-auto backdrop-blur-2xl shadow-md rounded-lg p-4 font-['Roboto']">  {/*  If items are loaded */}
+      {itemLoaded && <div className="w-[1200px] h-[650px]  backdrop-blur-2xl shadow-md m-3 rounded-lg p-4 font-['Roboto'] flex flex-col justify-center items-center">  {/*  If items are loaded */}
         <h1 className="text-2xl font-bold text-center mb-4 ">Admin Items</h1>
+        <div className="w-[1100px] overflow-auto">
         <table className="w-full border-collapse">
           <thead>
             <tr className="bg-accent text-white">
@@ -106,6 +107,7 @@ export default function AdminItemPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>}
       <Link to="/admin/items/add" className="fixed bottom-7 right-7">
         <BsHouseAdd  className="text-black text-6xl hover:text-red-600 hover:size-20 cursor-pointer" />

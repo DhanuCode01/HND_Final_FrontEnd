@@ -4,7 +4,66 @@ import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import MediaUpload from "../../utils/MediaUpload";
 
-
+const categories = {
+  men: [
+    { label: "T-Shirts", value: "t-shirts" },
+    { label: "Casual Shirts", value: "casual-shirts" },
+    { label: "Formal Shirts", value: "formal-shirts" },
+    { label: "Jackets", value: "jackets" },
+    { label: "Jeans", value: "jeans" },
+    { label: "Casual Trousers", value: "casual-trousers" },
+    { label: "Formal Trousers", value: "formal-trousers" },
+    { label: "Shorts", value: "shorts" },
+    { label: "Track Pants & Joggers", value: "track-pants-&-joggers" },
+    { label: "Formal Shoes", value: "formal-shoes" },
+    { label: "Sandals & Floaters", value: "sandals-&-floaters" },
+    { label: "Flip Flops", value: "flip-flops" },
+    { label: "Socks", value: "socks" },
+    { label: "Belts", value: "belts" },
+    { label: "Caps & Hats", value: "caps-&-hats" },
+    { label: "Sunglasses & Frames", value: "sunglasses-&-frames" },
+    { label: "Bags & Backpacks", value: "bags-&-backpacks" },
+  ],
+  women: [
+    { label: "Dresses", value: "dresses" },
+    { label: "Tops", value: "tops" },
+    { label: "T Shirt", value: "t-shirt" },
+    { label: "Jumpsuits", value: "jumpsuits" },
+    { label: "Jeans", value: "jeans" },
+    { label: "Leggings", value: "leggings" },
+    { label: "Trousers", value: "trousers" },
+    { label: "Shorts", value: "shorts" },
+    { label: "Skirts & Plazzos", value: "skirts-&-plazzos" },
+    { label: "Full Kits", value: "full-kits" },
+    { label: "Jackets & Coats", value: "jackets-&-coats" },
+    { label: "Shoes", value: "shoes" },
+    { label: "Flats", value: "flats" },
+    { label: "Sandals", value: "sandals" },
+    { label: "Heels", value: "heels" },
+    { label: "Flips Flops", value: "flips-flops" },
+    { label: "Bra", value: "bra" },
+    { label: "Wallets", value: "wallets" },
+    { label: "Belts", value: "belts" },
+    { label: "Fashion Jewellery", value: "fashion-jewellery" },
+    { label: "Sunglasses & Frames", value: "sunglasses-&-frames" },
+    { label: "Hand Bags & Backpacks", value: "hand-bags-&-backpacks" },
+  ],
+  kids: [
+    { label: "T-Shirts", value: "t-shirts" },
+    { label: "Shirts", value: "shirts" },
+    { label: "Jeans", value: "jeans" },
+    { label: "Trousers", value: "trousers" },
+    { label: "Shorts", value: "shorts" },
+    { label: "Jackets", value: "jackets" },
+    { label: "Frocks", value: "frocks" },
+    { label: "Skirts", value: "skirts" },
+    { label: "Shoes", value: "shoes" },
+    { label: "Sandals", value: "sandals" },
+    { label: "Socks", value: "socks" },
+    { label: "Caps", value: "caps" },
+    { label: "Backpacks", value: "backpacks" },
+  ],
+};
 
 export default  function UpdateItem() {
 
@@ -104,27 +163,32 @@ export default  function UpdateItem() {
                 <input className="border p-2 rounded" onChange={(e) => setProductName(e.target.value)} value={productName} type="text" placeholder="Product Name" />
                 <input className="border p-2 rounded" onChange={(e) => setProductQuantity(e.target.value)} value={productQuantity} type="number" placeholder="Product Quantity" />
                 <input className="border p-2 rounded" onChange={(e) => setProductPrice(e.target.value)} value={productPrice} type="number" placeholder="Product Price" />
-                <select className="border p-2 rounded" value={productCategory} onChange={(e) => setProductCategory(e.target.value)}>
-                    <option>Casual Shirts</option>
-                    <option>Formal Shirts</option>
-                    <option>T-Shirts</option>
-                    <option>Trousers</option>
-                    <option>Inner Wear</option>
-                    <option>Tops</option>
-                    <option>Sarees</option>
-                    <option>School Uniform</option>
-                </select>
                 <select className="border p-2 rounded" value={productCustomerType} onChange={(e) => setProductCustomerType(e.target.value)}>
-                    <option>Men</option>
-                    <option>Women</option>
-                    <option>Kids</option>
+                    <option value="Men">Men</option>
+                    <option value="Women">Women</option>
+                    <option value="Kids">Kids</option>
                 </select>
+                {productCustomerType ? (
+                  <select
+                    className="border p-2 rounded"
+                    value={productCategory}
+                    onChange={(e) => setProductCategory(e.target.value)}
+                  >
+                    {categories[productCustomerType.toLowerCase()].map((cat) => (
+                      <option key={cat.value} value={cat.value}>{cat.label}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <p className="text-red-500 text-sm">First select customer type</p>
+                )}
                 <select className="border p-2 rounded" value={productDimentions} onChange={(e) => setProductDimentions(e.target.value)}>
-                    <option>Small</option>
-                    <option>Medium</option>
-                    <option>Large</option>
-                    <option>XL</option>
-                    <option>XXL</option>
+                    <option value="Free">Free</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
                 </select>
                 <select className="border p-2 rounded" value={productAvailability} onChange={(e) => setProductAvailability(e.target.value)}>
                     <option value={true}>True</option>
