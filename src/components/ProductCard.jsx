@@ -12,11 +12,6 @@ export default function ProductCard({ item }) {
             />
     <div className="p-5  bg-gradient-to-bl from-primary to-accent">
             <h2 className="text-xl font-semibold text-gray-400 mb-1">{item.name}</h2>
-            <p className="text-sm text-gray-600 mb-2 line-clamp-2">{item.discription}</p>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-lg font-bold text-blue-600">${item.price}</span>
-              <span className="text-xs text-gray-500">Category: {item.category}</span>
-            </div>
 
             <div className="text-xs text-gray-500 mb-1">Dimensions: {item.dimension}</div>
 
@@ -27,6 +22,35 @@ export default function ProductCard({ item }) {
             >
               {item.availability ? "✔ In Stock" : "✖ Out of Stock"}
             </p>
+
+
+            <div className="flex items-center justify-between mb-2">
+                  <span className="text-lg font-bold text-blue-600">RS: {item.price}</span>
+                  <span className="text-xs text-gray-500">Category: {item.category}</span>
+            </div>
+
+
+            <div className="text-xs text-white mt-1 space-y-1">
+                  <div className="flex items-center justify-between bg-black/10  rounded-lg">
+                    <span>Pay in 3 x Rs 563.33 with</span>
+                    <img
+                      src="/koko.png"
+                      alt="Koko Pay"
+                      className="w-[60px] h-[20px] object-contain rounded-md"
+                    />
+                  </div>
+
+                  <div className="flex items-center justify-between bg-black/10  rounded-lg">
+                    <span>3 x Rs 563.33 or 3% Cashback with</span>
+                    <img
+                      src="/mintpay.webp"
+                      alt="IntPay"
+                      className="w-[60px] h-[20px] object-contain rounded-md"
+                    />
+                  </div>
+            </div>
+
+
 
             <div className="mt-4">
               <Link

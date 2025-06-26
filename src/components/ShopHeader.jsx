@@ -12,7 +12,7 @@ const categories = {
   women: [
     "Dresses", "Tops", "T Shirt", "Jumpsuits", "Jeans", "Leggings",
     "Trousers", "Shorts", "Skirts & Plazzos", "Full Kits", "Jackets & Coats",
-    "Shoes", "Flats", "Sandals", "Heels", "Flips Flops", "Bra", "Wallets",
+    "Shoes", "Flats", "Sandals", "Heels", "Flips Flops", "Bra","Sarees", "Wallets",
     "Belts", "Fashion Jewellery", "Sunglasses & Frames", "Hand Bags & Backpacks",
   ],
   kids: [

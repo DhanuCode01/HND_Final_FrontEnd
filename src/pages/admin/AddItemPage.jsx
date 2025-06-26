@@ -43,6 +43,7 @@ const categories = {
     { label: "Heels", value: "heels" },
     { label: "Flips Flops", value: "flips-flops" },
     { label: "Bra", value: "bra" },
+    { label: "Sarees", value: "sarees" },
     { label: "Wallets", value: "wallets" },
     { label: "Belts", value: "belts" },
     { label: "Fashion Jewellery", value: "fashion-jewellery" },

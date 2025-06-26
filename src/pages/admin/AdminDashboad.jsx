@@ -24,6 +24,7 @@ export default function AdminDashboard() {
         })
         .then((res) => {
           setItems(res.data);
+          console.log(res.data)
           setItemLoaded(true);
         })
         .catch((err) => {
@@ -53,7 +54,7 @@ export default function AdminDashboard() {
                 <BarChart data={items}>
                   <CartesianGrid strokeDasharray="4 4" stroke="#f50519" />
                   <XAxis
-                    dataKey="name"
+                    dataKey="key"
                     angle={-20}
                     textAnchor="end"
                     interval={0}

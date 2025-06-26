@@ -12,6 +12,7 @@ import ShopFooter from "../../components/ShopFooter.jsx"
 import AboutUs from "../aboutUs/AboutUs.jsx"
 
 
+
 export default function ShopPage(){
 
     return(

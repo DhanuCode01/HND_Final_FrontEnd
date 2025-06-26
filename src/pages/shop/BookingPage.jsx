@@ -3,6 +3,7 @@ import { loadCart } from "../../utils/Cart";
 import BookingItem from "../../components/BookingItem";
 import axios from "axios";
 import { FaCartArrowDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function BookingPage() {
     const [cart, setCart] = useState(loadCart());
@@ -58,6 +59,42 @@ export default function BookingPage() {
                     </div>
                 </div>
             )}
+                    <div className="mt-10 flex flex-wrap gap-6 justify-center">
+                    {/* Koko Pay Button */}
+                    <a
+                        href="https://paykoko.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 px-5 py-3 bg-primary hover:bg-accent text-white rounded-xl shadow-lg hover:shadow-purple-500/50 transition duration-300 group"
+                    >
+                        <div className="p-1 bg-white rounded-full shadow-md group-hover:scale-110 group-hover:ring-2 group-hover:ring-purple-400 transition-transform duration-300">
+                        <img
+                            src="/koko.png"
+                            alt="Koko Pay"
+                            className="w-[50px] h-[24px] object-contain"
+                        />
+                        </div>
+                        <span className="text-sm font-semibold tracking-wide">Pay with Koko</span>
+                    </a>
+
+                    {/* Mint Pay Button */}
+                    <a
+                        href="https://mintpay.lk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 px-5 py-3 bg-secoundary hover:bg-accent text-white rounded-xl shadow-lg hover:shadow-green-400/50 transition duration-300 group"
+                    >
+                        <div className="p-1 bg-white rounded-full shadow-md group-hover:scale-110 group-hover:ring-2 group-hover:ring-green-400 transition-transform duration-300">
+                        <img
+                            src="/mintpay.webp"
+                            alt="MintPay"
+                            className="w-[50px] h-[24px] object-contain"
+                        />
+                        </div>
+                        <span className="text-sm font-semibold tracking-wide">Pay with MintPay</span>
+                    </a>
+                    </div>
+
         </div>
     );
 }
