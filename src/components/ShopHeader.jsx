@@ -54,13 +54,20 @@ export default function ShopHeader() {
 
                     {/* Dropdown */}
                     {hovered === cat && (
-                      <div className="absolute top-full left-0 w-72 max-h-80 overflow-y-auto bg-white shadow-2xl border border-gray-200 rounded-xl p-3 z-50 transition-all duration-200 hover:scale-110">
+                      <div className="absolute top-full left-0 w-140 max-h-80 overflow-y-auto bg-black shadow-2xl border border-gray-200 rounded-xl p-3 z-50 transition-all duration-200 hover:scale-110 flex flex-row item-center justify-center ">
+                            {/* Category Image */}
+                          
+                          <img
+                            src={`/${cat}.jpg`}
+                            alt={cat}
+                            className="w-40 h-80 object-cover rounded-md shadow-md hidden md:block m-2 mr-5 "
+                          />
                         <div className="grid grid-cols-2 gap-2">
                           {categories[cat].map((item) => (
                             <Link
                               key={item}
                               to={`/${cat}/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                              className="block text-sm text-gray-800 px-3 py-2 rounded-md hover:bg-gray-100 transition-all"
+                              className="block text-sm text-white  px-3 py-2 rounded-md hover:bg-primary transition-all w-40"
                             >
                               {item}
                             </Link>

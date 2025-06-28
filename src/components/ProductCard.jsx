@@ -33,20 +33,37 @@ export default function ProductCard({ item }) {
             <div className="text-xs text-white mt-1 space-y-1">
                   <div className="flex items-center justify-between bg-black/10  rounded-lg">
                     <span>Pay in 3 x Rs 563.33 with</span>
-                    <img
-                      src="/koko.png"
-                      alt="Koko Pay"
-                      className="w-[60px] h-[20px] object-contain rounded-md"
-                    />
+
+                    <a
+                        href="https://paykoko.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center   text-white rounded-xl shadow-lg hover:shadow-green-400/50 transition duration-300 group cursor-pointer"
+                    >
+                                <img
+                                src="/koko.png"
+                                alt="Koko Pay"
+                                className="w-[60px] h-[30px] object-contain"
+                                />
+                    </a>
+                    
                   </div>
 
                   <div className="flex items-center justify-between bg-black/10  rounded-lg">
-                    <span>3 x Rs 563.33 or 3% Cashback with</span>
-                    <img
-                      src="/mintpay.webp"
-                      alt="IntPay"
-                      className="w-[60px] h-[20px] object-contain rounded-md"
-                    />
+                  <span>3 x Rs 563.33 or 3% Cashback with</span>
+
+                    <a
+                        href="https://mintpay.lk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-white rounded-xl shadow-lg hover:shadow-green-400/50 transition duration-300 group cursor-pointer"
+                    >
+                            <img
+                                  src="/mintpay.webp"
+                                  alt="mintPay"
+                                  className="w-[60px] h-[30px] object-contain "
+                                  />
+                    </a>                    
                   </div>
             </div>
 
