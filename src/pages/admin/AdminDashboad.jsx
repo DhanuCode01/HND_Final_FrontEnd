@@ -61,7 +61,7 @@ export default function AdminDashboard() {
                     height={70}
                     tick={{ fill: "#000000", fontSize: 12 }}
                   />
-                  <YAxis tick={{ fill: "#000000", fontSize: 12 }} />
+                  <YAxis tick={{ fill: "#000000", fontSize: 12 }} domain={[0, 100]} tickCount={10}  />
                   <Tooltip
                     contentStyle={{ backgroundColor: "#05f519", borderRadius: "8px", borderColor: "#000000" }}
                     labelStyle={{ color: "#03194d", fontWeight: "bold" }}

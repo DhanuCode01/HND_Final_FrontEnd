@@ -51,7 +51,7 @@ export default function GetStart(){
     return(
         <div className='h-full w-full m-4 flex justify-center items-center relative  '>
 
-                    <video className='h-screen w-screen object-cover' src={Shop} autoPlay loop muted/>
+                    <video className='h-screen w-screen object-cover' src={Shop} autoPlay  />
                     <div className="h-[60px] w-fit px-6 bg-white/10 backdrop-blur-md border border-white/20 shadow-xl fixed top-4 right-4 rounded-full flex items-center gap-6 text-white font-medium text-sm z-30">
                         <Link
                             to="/login"
