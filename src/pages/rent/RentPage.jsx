@@ -8,6 +8,8 @@ import Kids from "./Kids.jsx"
 import Error from "../shop/Error.jsx"
 import Home from "./Home.jsx"
 import ImageSearch from "./ImageSearch.jsx"
+import RentProductOverview from "./RentProductOverview.jsx"
+import ShopFooter from "../../components/ShopFooter.jsx"
 
 
 export default function RentPage(){
@@ -20,11 +22,12 @@ export default function RentPage(){
                                 <Route path="/women/:key"  element={<Women/>}></Route>
                                 <Route path="/kids/:key"  element={<Kids/>}></Route>
                                 <Route path="/search"  element={<ImageSearch/>}></Route>
+                                <Route path="/rent/:key" element={<RentProductOverview/>}></Route>
                                 <Route path="/"  element={<Home/>}></Route>
                                 <Route path="/*"  element={<Error/>}></Route>
                                 </Routes>
                 </div>
-                  
+                <ShopFooter/>
 
         </div>
     )

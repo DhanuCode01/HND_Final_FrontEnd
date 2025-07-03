@@ -71,7 +71,7 @@ export default function RentCard({ item }) {
 
             <div className="mt-4">
               <Link
-                to={`/product/${item.key}`}
+                to={`/rent/rent/${item.key}`}
                 className="inline-block w-full text-center bg-accent hover:bg-red-700 text-white font-medium py-2 px-4 rounded-xl transition-colors duration-300 border-2 border-black"
               >
                 View Details

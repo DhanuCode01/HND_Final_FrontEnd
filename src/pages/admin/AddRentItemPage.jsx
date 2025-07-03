@@ -2,86 +2,69 @@ import axios from "axios";
 import { useState } from "react"
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import MediaUpload from "../../utils/MediaUpload.jsx";
 import "./AdminitemPage.css"
 
 
 const categories = {
   men: [
-    { label: "T-Shirts", value: "t-shirts" },
-    { label: "Casual Shirts", value: "casual-shirts" },
-    { label: "Formal Shirts", value: "formal-shirts" },
-    { label: "Jackets", value: "jackets" },
-    { label: "Jeans", value: "jeans" },
-    { label: "Casual Trousers", value: "casual-trousers" },
-    { label: "Formal Trousers", value: "formal-trousers" },
-    { label: "Shorts", value: "shorts" },
-    { label: "Track Pants & Joggers", value: "track-pants-&-joggers" },
-    { label: "Formal Shoes", value: "formal-shoes" },
-    { label: "Sandals & Floaters", value: "sandals-&-floaters" },
-    { label: "Flip Flops", value: "flip-flops" },
-    { label: "Socks", value: "socks" },
-    { label: "Belts", value: "belts" },
-    { label: "Caps & Hats", value: "caps-&-hats" },
-    { label: "Sunglasses & Frames", value: "sunglasses-&-frames" },
-    { label: "Bags & Backpacks", value: "bags-&-backpacks" },
+    { label: "Suits", value: "suits" },
+    { label: "Tuxedos", value: "tuxedos" },
+    { label: "Blazer", value: "blazer" },
+    { label: "Dress Shirts", value: "dress shirts" },
+    { label: "Waistcoats", value: "waistcoats" },
+    { label: "Ties", value: "ties" },
+    { label: "Formal Trousers", value: "formal trousers" },
+    { label: "Formal Shoes", value: "formal shoes" },
+    { label: "Cufflinks", value: "cufflinks" }
   ],
   women: [
-    { label: "Dresses", value: "dresses" },
-    { label: "Tops", value: "tops" },
-    { label: "T Shirt", value: "t-shirt" },
-    { label: "Jumpsuits", value: "jumpsuits" },
-    { label: "Jeans", value: "jeans" },
-    { label: "Leggings", value: "leggings" },
-    { label: "Trousers", value: "trousers" },
-    { label: "Shorts", value: "shorts" },
-    { label: "Skirts & Plazzos", value: "skirts-&-plazzos" },
-    { label: "Full Kits", value: "full-kits" },
-    { label: "Jackets & Coats", value: "jackets-&-coats" },
-    { label: "Shoes", value: "shoes" },
-    { label: "Flats", value: "flats" },
-    { label: "Sandals", value: "sandals" },
-    { label: "Heels", value: "heels" },
-    { label: "Flips Flops", value: "flips-flops" },
-    { label: "Bra", value: "bra" },
-    { label: "Sarees", value: "sarees" },
-    { label: "Wallets", value: "wallets" },
-    { label: "Belts", value: "belts" },
-    { label: "Fashion Jewellery", value: "fashion-jewellery" },
-    { label: "Sunglasses & Frames", value: "sunglasses-&-frames" },
-    { label: "Hand Bags & Backpacks", value: "hand-bags-&-backpacks" },
+    { label: "Blazer", value: "blazer" },
+    { label: "Saree", value: "saree" },
+    { label: "Frock", value: "frock" },
+    { label: "Lehenga", value: "lehenga" },
+    { label: "Salwar Suit", value: "salwar suit" },
+    { label: "Kurti", value: "kurti" },
+    { label: "Gown", value: "gown" },
+    { label: "Evening Dress", value: "evening dress" },
+    { label: "Bridal Dress", value: "bridal dress" },
+    { label: "Anarkali", value: "anarkali" },
+    { label: "Skirt", value: "skirt" },
+    { label: "Top", value: "top" },
+    { label: "Formal Trouser", value: "formal trouser" },
+    { label: "Jacket", value: "jacket" },
+    { label: "Dupatta", value: "dupatta" }
   ],
   kids: [
-    { label: "T-Shirts", value: "t-shirts" },
-    { label: "Shirts", value: "shirts" },
-    { label: "Jeans", value: "jeans" },
-    { label: "Trousers", value: "trousers" },
+    { label: "Blazer", value: "blazer" },
+    { label: "Frock", value: "frock" },
+    { label: "Suit", value: "suit" },
+    { label: "Tuxedo", value: "tuxedo" },
+    { label: "Lehenga", value: "lehenga" },
+    { label: "Kurta Pajama", value: "kurta pajama" },
+    { label: "Gown", value: "gown" },
+    { label: "Skirt", value: "skirt" },
+    { label: "Top", value: "top" },
+    { label: "Jacket", value: "jacket" },
+    { label: "Sherwani", value: "sherwani" },
+    { label: "Casual Shirt", value: "casual shirt" },
+    { label: "T-Shirt", value: "t-shirt" },
     { label: "Shorts", value: "shorts" },
-    { label: "Jackets", value: "jackets" },
-    { label: "Frocks", value: "frocks" },
-    { label: "Skirts", value: "skirts" },
-    { label: "Shoes", value: "shoes" },
-    { label: "Sandals", value: "sandals" },
-    { label: "Socks", value: "socks" },
-    { label: "Caps", value: "caps" },
-    { label: "Backpacks", value: "backpacks" },
-  ],
+    { label: "Jeans", value: "jeans" }
+  ]
 };
 
-
-
-export default  function AddItemPage() {
+export default  function AddRentItemPage() {
 
           const [productKey, setProductKey]=useState("");             /* create input data usestate */
           const [productName, setProductName]=useState("");
           const [productQuantity,setProductQuantity]=useState(0);
           const [productCustomerType,setProductCustomerType]=useState("");
           const [productPrice, setProductPrice]=useState(0);
-          const [productCategory, setProductCategory]=useState("t-shirts");
+          const [productCategory, setProductCategory]=useState("blazer");
           const [productDimentions, setProductDimentions]=useState("Free");
           const [productDiscription, setProductDiscription]=useState("");
           const [productAvailability,setProductAvailability]=useState(true);
-          const [productImages,setproductImages]=useState([])//images usestate Array
+          const [ProductLink,setProductLink]=useState([])//images Link usestate Array
 
           const navigate =useNavigate();                  //navigate to you wont location eg:="/admin/item"
 
@@ -92,12 +75,26 @@ export default  function AddItemPage() {
 
                 async function handleAddItem(){            /*  add button onclick function */
                                const promises=[]       //create promises array(used to handle multiple promises)
+
+                               const token=localStorage.getItem("token");  /*get token*/
                                
 
-                              for(let i=0; i<productImages.length; i++){    //read to product image one by one
-                                console.log(productImages[i])               //print console log (image one by one)
-                                const promise=MediaUpload(productImages[i])      //get promise each file
-                                promises.push(promise)                      //push promise to promises array
+                              for(let i=0; i<ProductLink.length; i++){    //read to product image one by one
+                                                                        //print console log (image one by one)
+                                
+                                    await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/rent/buffer`,{URL:ProductLink[i]}, { headers: { Authorization: `Bearer ${token}` } })         //.env useing normal way
+                                    .then((res) => {
+                                    
+                                    const promise=res.data.preview;
+                                    promises.push(promise)                      //push promise to promises array
+                                    console.log(promises)
+                                    
+                                    
+                                    })
+                                    .catch((err) => {
+                                    console.log(err);
+                                    });
+
 
                                  if(i==5){
                                   toast.error("You Can Only Upload 5  Images at a Time")
@@ -108,26 +105,17 @@ export default  function AddItemPage() {
 
                               
                               
-                              const token=localStorage.getItem("token");  /*get token*/
-                                            
-                                      /* if(token == null){
-                                        toast.error("please login first");        //1st Method check autherization
-                                        }*/
-                                       if(token){                                  //2nd Method check autherization
+                              
+
+                                         if(token){                                  // Method check autherization
 
                                               try{
 
-                                                /* Promise.all(promises).then((result)=>{                   //{1st way of execute promises array}        //use try catch
-                                                  console.log(result)                                    //execute all promises in one time(Promise.all = In build function)
-                                                }).catch((err)=>{
-                                                  toast.error(err)
-                                                }) */
-
                                                 
-                                                const imageURL=await Promise.all(promises) //{2st way of execute promises array}      //useing async await
+                                                const imageURL=await Promise.all(promises) //{way of execute promises array}      //useing async await
+                                                console.log(imageURL)
 
-
-                                                      const result = await axios.post(`${backendurl}/api/product/add`,{        //link     //.env useing backtick
+                                                      const result = await axios.post(`${backendurl}/api/rent`,{        //link     //.env useing backtick
                                                             
                                                               key:productKey,                         
                                                               name:productName,
@@ -146,7 +134,7 @@ export default  function AddItemPage() {
                                                       })
                                                       toast.success(result.data.Message || "Success");
 
-                                                      navigate ("/admin/items")                         //After success, navigate to the admin/items page.
+                                                      navigate ("/admin/rent")                         //After success, navigate to the admin/items page.
 
 
                                                       
@@ -156,17 +144,16 @@ export default  function AddItemPage() {
 
                                         }else{
                                                    toast.error("please login first");    
-                                        }
+                                        } 
 
                                       
 
-                } 
-
+                        } 
 
 
   return (
     <div className="w-full h-full flex flex-col items-center p-6 bg-picture">
-            <h1 className="text-2xl font-bold mb-4">Add Item</h1>
+            <h1 className="text-2xl font-bold mb-4">Add Rent Item</h1>
             <div className="w-full max-w-md border border-gray-300 p-6 rounded-lg shadow-lg flex flex-col gap-4 bg-white">
                 <input className="border p-2 rounded" onChange={(e) => setProductKey(e.target.value)} values={productKey} type="text" placeholder="Product Key" />
                 <input className="border p-2 rounded" onChange={(e) => setProductName(e.target.value)} values={productName} type="text" placeholder="Product Name" />
@@ -200,13 +187,21 @@ export default  function AddItemPage() {
                     <option value="Large">Large</option>
                     <option value="XL">XL</option>
                     <option value="XXL">XXL</option>
-                    <option value="XXXL">XXXL</option>
+                   
                 </select>
                 <textarea className="border p-2 rounded" onChange={(e) => setProductDiscription(e.target.value)} values={productDiscription} placeholder="Product Description"></textarea>
-                <input className="border p-2 rounded" type="file" multiple onChange={(e) => setproductImages(e.target.files)} />
+                <textarea className="border p-2 rounded w-full" onChange={(e) => setProductLink(e.target.value
+                                                                                                .split('\n') // split string by new lines → array
+                                                                                                .map(link => link.trim()) // remove spaces
+                                                                                                .filter(Boolean) // remove empty lines
+                                                                                                )
+                                                                        }
+                                                                                                                    value={ProductLink.join('\n')} /* convert array → string */ placeholder="Enter one product link per line"/>
+
                 <button className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600" onClick={handleAddItem}>Add</button>
-                <button className="bg-gray-500 text-white py-2 rounded hover:bg-gray-600" onClick={() => navigate("/admin/items")}>Cancel</button>
+                <button className="bg-gray-500 text-white py-2 rounded hover:bg-gray-600" onClick={() => navigate("/admin/rent")}>Cancel</button>
             </div>
+            
         </div>
   )
 }

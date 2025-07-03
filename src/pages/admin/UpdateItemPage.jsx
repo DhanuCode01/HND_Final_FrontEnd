@@ -3,6 +3,8 @@ import { useState } from "react"
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import MediaUpload from "../../utils/MediaUpload";
+import "./AdminitemPage.css"
+
 
 const categories = {
   men: [
@@ -157,7 +159,7 @@ export default  function UpdateItem() {
 
 
   return (
-            <div className="w-full h-full flex flex-col items-center p-6">
+            <div className="w-full h-full flex flex-col items-center p-6 bg-picture">
             <h1 className="text-2xl font-bold mb-4">Update Item</h1>
             <div className="w-full max-w-md border border-gray-300 p-6 rounded-lg shadow-lg flex flex-col gap-4 bg-white">
                 <input className="border p-2 rounded bg-gray-100" disabled value={productKey} type="text" placeholder="Product Key" />

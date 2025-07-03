@@ -1,24 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { FaSearchengin } from "react-icons/fa";
 import { MdImageSearch } from "react-icons/md";
+import toast from "react-hot-toast";
 
- const categories = {
+const categories = {
   men: [
-    "Suits","Tuxedos","Blazers","Dress Shirts","Waistcoats","Ties","Formal Trousers","Formal Shoes","Cufflinks"
-    ],
-    women: [
-    "Blazer",  "Saree",  "Frock",  "Lehenga",  "Salwar Suit",  "Kurti",  "Gown",  "Evening Dress",  "Bridal Dress",  "Anarkali",  "Skirt",  "Top",  "Formal Trouser",  "Jacket","Dupatta"
-    ]
-    ,
-    kids: [
+    "Suits", "Tuxedos", "Blazer", "Dress Shirts", "Waistcoats", "Ties", "Formal Trousers", "Formal Shoes", "Cufflinks"
+  ],
+  women: [
+    "Blazer", "Saree", "Frock", "Lehenga", "Salwar Suit", "Kurti", "Gown", "Evening Dress", "Bridal Dress", "Anarkali", "Skirt", "Top", "Formal Trouser", "Jacket", "Dupatta"
+  ],
+  kids: [
     "Blazer", "Frock", "Suit", "Tuxedo", "Lehenga", "Kurta Pajama", "Gown", "Skirt", "Top", "Jacket", "Sherwani", "Casual Shirt", "T-Shirt", "Shorts", "Jeans"
-    ]
-
+  ]
 };
 
 export default function RentHeader(){
   const [hovered, setHovered] = useState(null);
+  const [link,setLink]=useState(null);
+  const navigator =useNavigate();
+
+
+  function handleOnClick(){
+                        
+                         if(link===null){
+                          toast.error("Pleace Enter Your Link...❗‼️")
+                          return;
+                        }
+                        navigator("/rent/search",{state:link});
+                        setLink(null);
+                          }
+
+
 
   return (
     <header className="w-full h-[70px] shadow-md bg-gradient-to-bl from-primary to-accent mb-5 z-50 relative">
@@ -83,16 +96,22 @@ export default function RentHeader(){
                         className="outline-none text-sm w-40 md:w-64 bg-transparent placeholder-gray-500"
                       />
                     </div> */}
-                    <div className="absolute right-4 flex items-center">
-                    <Link
-                        to="/rent/search"
-                        className="flex items-center gap-2 bg-white px-3 py-2 rounded-full shadow-md hover:shadow-lg transition-all hover:bg-primary hover:text-white text-gray-700"
-                        title="Image Search"
-                    >
-                        <MdImageSearch className="text-xl" />
-                        <span className="hidden md:inline text-sm font-medium">Image Search</span>
-                    </Link>
-                    </div>
+                    <div className="absolute right-4 flex items-center space-x-2">
+                        <input
+                          type="text"
+                          placeholder="Paste image link..."
+                          value={link || ""}
+                          onChange={(e) => setLink(e.target.value)}
+                          className="px-4 py-2 w-40 md:w-64 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm placeholder-gray-400 text-gray-400 transition"
+                        />
+                        <button
+                          onClick={handleOnClick}
+                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white hover:bg-primary text-gray-700 hover:text-white shadow-md hover:shadow-lg transition-all duration-200"
+                        >
+                          <MdImageSearch className="text-xl" />
+                        </button>
+                      </div>
+
 
 
 
