@@ -9,6 +9,7 @@ import "./AdminitemPage.css"
 const categories = {
   men: [
     { label: "T-Shirts", value: "t-shirts" },
+    { label: "Blazer", value: "blazer" },
     { label: "Casual Shirts", value: "casual-shirts" },
     { label: "Formal Shirts", value: "formal-shirts" },
     { label: "Jackets", value: "jackets" },

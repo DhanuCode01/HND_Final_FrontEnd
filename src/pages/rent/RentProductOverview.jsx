@@ -5,6 +5,7 @@ import ImageSlider from "../../components/ImageSlider";
 import { addToCart, loadCart } from "../../utils/Cart";
 import { MdAddShoppingCart } from "react-icons/md";
 import toast from "react-hot-toast";
+import Dimension from "../../components/Dimension";
 
 
 export default function RentProductOverview(){
@@ -40,12 +41,28 @@ export default function RentProductOverview(){
                                 <ImageSlider images={product.Image} />
                             </div>
                             <div className="md:w-1/2 w-full flex flex-col justify-center gap-4">
-                                <h1 className="text-2xl font-bold text-white">{product.name}</h1>
-                                <p className="text-sm text-gray-400">SKU: {product.key}</p>
-                                <h2 className="text-lg font-semibold text-gray-600">Category: {product.category}</h2>
-                                <p className="text-md text-gray-600">Dimension: {product.dimension}</p>
-                                <p className="text-sm text-gray-700 max-h-[100px] overflow-y-auto">{product.discription}</p>
-                                <h2 className="text-2xl font-bold text-green-500">Rs. {product.price}</h2>
+                                <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-inner space-y-4">
+                                    <h1 className="text-3xl font-extrabold text-white">{product.name}</h1>
+
+                                    <div className="text-sm text-gray-300 flex flex-wrap gap-4">
+                                        <span className="bg-black/20 px-3 py-1 rounded-full">SKU: <span className="font-medium text-white">{product.key}</span></span>
+                                        <span className="bg-black/20 px-3 py-1 rounded-full">Category: <span className="font-medium text-white">{product.category}</span></span>
+                                        <div className="space-y-2">
+                                            <h3 className="text-md text-gray-300">Select Dimension:</h3>
+                                            <Dimension dimension={product.dimension} />
+                                        </div>
+
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-md text-gray-300 mb-1">Description:</h3>
+                                        <p className="text-sm text-gray-100 bg-white/5 p-3 rounded-md max-h-[120px] overflow-y-auto whitespace-pre-wrap">
+                                        {product.description}
+                                        </p>
+                                    </div>
+
+                                    <h2 className="text-3xl font-bold text-green-400">Rs. {product.price}</h2>
+                                </div>
                                <button 
                                     className="mt-4 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold text-md shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 active:scale-95"
                                     onClick={() => { 

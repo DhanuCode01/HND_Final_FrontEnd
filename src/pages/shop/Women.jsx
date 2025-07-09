@@ -21,7 +21,7 @@ export default function Women() {
             
             const token = localStorage.getItem("token");  /*get token*/
 
-            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/product/women/${key}`,{ headers: { Authorization: `Bearer ${token}` } })
+            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/product/women/${key}`/* ,{ headers: { Authorization: `Bearer ${token}` } } */)
             .then((res)=>{
 
                 console.log(res.data)

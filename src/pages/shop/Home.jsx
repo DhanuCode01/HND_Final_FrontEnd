@@ -16,9 +16,9 @@ export default function Home(){
     useState(()=>{
         if(State=="loading"){
 
-            const token = localStorage.getItem("token");  /*get token*/
+            //const token = localStorage.getItem("token");  /*get token*/
 
-            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/product`,{ headers: { Authorization: `Bearer ${token}` } })
+            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/product`/* { headers: { Authorization: `Bearer ${token}` } } */)
             .then((res)=>{
 
                 console.log(res.data)

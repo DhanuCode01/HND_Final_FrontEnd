@@ -10,7 +10,7 @@ export default function ImageSlider(props){
             <img
                 src={selectedImage}
                 alt="product"
-                className="max-w-full max-h-full object-contain border-8 border-white "
+                className="w-[700px] h-[700px] object-cover border-8 border-white "
             />
             <div className="mt-4 w-full flex justify-start gap-2 overflow-x-auto">
                 {images.map((image, index) => (

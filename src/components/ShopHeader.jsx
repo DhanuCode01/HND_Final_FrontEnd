@@ -4,7 +4,7 @@ import { FaSearchengin } from "react-icons/fa";
 
 const categories = {
   men: [
-    "T Shirts", "Casual Shirts", "Formal Shirts", "Jackets", "Jeans",
+    "T Shirts","Blazer", "Casual Shirts", "Formal Shirts", "Jackets", "Jeans",
     "Casual Trousers", "Formal Trousers", "Shorts", "Track Pants & Joggers",
     "Formal Shoes", "Sandals & Floaters", "Flip Flops", "Socks", "Belts",
     "Caps & Hats", "Sunglasses & Frames", "Bags & Backpacks",

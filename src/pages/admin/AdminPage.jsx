@@ -11,6 +11,7 @@ import AdminUserPage from "./AdminUserPage";
 import AdminRentItemPage from "./AdminRentItemPage";
 import AddRentItemPage from "./AddRentItemPage";
 import UpdateRentItemPage from "./UpdateRentItemPage";
+import { FcHome } from "react-icons/fc";
 
 export default function AdminPage(){
     return(
@@ -37,7 +38,14 @@ export default function AdminPage(){
                                     <Link to="/admin/dashboad" className='w-full h-[40px] text-blue-400 text-[25px] font-bold flex justify-center items-center shadow-2xl mb-3'>
                                                 <CiBoxList />
                                                 Dashboad
-                                    </Link>   
+                                    </Link>
+                                    <Link
+                                        to="/"
+                                        className="flex items-center justify-center mt-4 absolute bottom-5  left-25"
+                                        title="Home"
+                                    >
+                                        <FcHome size={50} />
+                                    </Link>  
                                 </div>
                         </div>
                         

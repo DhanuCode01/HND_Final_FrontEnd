@@ -1,54 +1,59 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+
+import { useEffect } from "react";
 
 export default function TestTwo() {
-  const [data, setData] = useState([]);
-  const [productLink,setProductLink]=useState();
-  const [Link,setLink]=useState();
-  const token = localStorage.getItem("token");
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.payhere.lk/lib/payhere.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
+  const payNow = () => {
+    // Callback functions
+    window.payhere.onCompleted = function (orderId) {
+      alert("✅ Payment completed! Order ID: " + orderId);
+    };
 
-  async function handleAddItem() {
+    window.payhere.onDismissed = function () {
+      alert("❌ Payment dismissed.");
+    };
 
-                await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/rent/buffer`,{URL:productLink}, { headers: { Authorization: `Bearer ${token}` } })         //.env useing normal way
-                    .then((res) => {
-                      setLink(res.data.preview)
-                      
-                    })
-                    .catch((err) => {
-                      console.log(err);
-                    });
+    window.payhere.onError = function (error) {
+      alert("🚫 Error: " + error);
+    };
 
+    // Payment object
+    const payment = {
+      sandbox: true, // true = sandbox mode
+      merchant_id: "1231129", // Replace this with your actual PayHere sandbox merchant ID
+      return_url: "http://localhost:3000/success",
+      cancel_url: "http://localhost:3000/cancel",
+      notify_url: "http://localhost:5000/api/payment/notify", // Must match backend
 
+      order_id: "Order123",
+      items: "T-shirt",
+      amount: "1000.00",
+      currency: "LKR",
+      first_name: "Test",
+      last_name: "User",
+      email: "test@example.com",
+      phone: "0771234567",
+      address: "123, Test Street",
+      city: "Colombo",
+      country: "Sri Lanka",
+    };
 
-                await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/rent`, {headers: { Authorization: `Bearer ${token}` },})
-                    .then((res) => {
-                        console.log(res.data)
-                        setData(res.data);
-                    })
-                    .catch((err) => {
-                          console.log(err);
-                    });
-
-
-                  for(let i=0; i<data.length; i++){ 
-                    if(data[i].Image[0] == Link){
-                      console.log("success")
-                      return;
-                    }
-                  }
-                  console.log("error")
-
-  }
-
-
+    // Start payment popup
+    window.payhere.startPayment(payment);
+  };
 
   return (
-    <div>
-     
-     <textarea className="border p-2 rounded w-full" onChange={(e) => setProductLink(e.target.value)} value={productLink} placeholder="Enter product link "/>
-     <button className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600" onClick={handleAddItem}>Add</button>
+    <div style={{ padding: "30px" }}>
+      <h2>💳 Test PayHere Payment</h2>
+      <button onClick={payNow} style={{ padding: "10px 20px", fontSize: "18px" }}>
+        Pay Now
+      </button>
     </div>
   );
 }

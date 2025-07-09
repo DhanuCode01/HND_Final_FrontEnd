@@ -22,7 +22,7 @@ export default function Men() {
             
             const token = localStorage.getItem("token");  /*get token*/
 
-            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/rent/men/${key}`,{ headers: { Authorization: `Bearer ${token}` } })
+            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/rent/men/${key}`/* ,{ headers: { Authorization: `Bearer ${token}` } } */)
             .then((res)=>{
 
                 console.log(res.data)

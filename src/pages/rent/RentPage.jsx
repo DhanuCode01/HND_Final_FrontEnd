@@ -27,7 +27,8 @@ export default function RentPage(){
                                 <Route path="/*"  element={<Error/>}></Route>
                                 </Routes>
                 </div>
-                <ShopFooter/>
+                
+                
 
         </div>
     )

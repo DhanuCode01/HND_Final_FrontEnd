@@ -30,7 +30,7 @@ export default function AdminUserPage() {
 
   return (
     <div className="p-4 bg-picture">
-      <h1 className="text-2xl font-bold mb-4">User List</h1>
+      <h1 className="text-2xl font-bold mb-4 flex justify-center items-center">User List</h1>
       {users.length === 0 ? (
         <p className="text-gray-500">No users found.</p>
       ) : (

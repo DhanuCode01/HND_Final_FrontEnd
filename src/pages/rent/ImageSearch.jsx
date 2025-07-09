@@ -23,7 +23,7 @@ export default function ImageSearch() {
       .post(
         `${import.meta.env.VITE_BACKEND_URL}/api/rent/buffer`,
         { URL: link },
-        { headers: { Authorization: `Bearer ${token}` } }
+        /* { headers: { Authorization: `Bearer ${token}` } } */
       )
       .then((res) => {
         setBufferData(res.data.preview);
@@ -36,9 +36,9 @@ export default function ImageSearch() {
 
   useEffect(() => {
                     axios
-                    .get(`${import.meta.env.VITE_BACKEND_URL}/api/rent`, {
+                    .get(`${import.meta.env.VITE_BACKEND_URL}/api/rent`, /* {
                         headers: { Authorization: `Bearer ${token}` },
-                    })
+                    } */)
                     .then((res) => {
                         setItems(res.data);
                         setLoadingItem("loaded");

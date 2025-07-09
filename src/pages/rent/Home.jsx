@@ -16,8 +16,8 @@ export default function Home(){
     useState(()=>{
         if(State=="loading"){
 
-            const token = localStorage.getItem("token");  /*get token*/
-            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/rent`, {headers: { Authorization: `Bearer ${token}` },})
+            //const token = localStorage.getItem("token");  /*get token*/
+            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/rent`/* , {headers: { Authorization: `Bearer ${token}` },} */)
                     .then((res) => {
                         console.log(res.data)
                         setItems(res.data);
@@ -33,9 +33,9 @@ export default function Home(){
     },[])
     return(
         <div     
-                 onMouseMove={handleMouseMove}
-                 className="h-full w-full flex flex-wrap justify-center pt-[50px] bg-gradient-to-br from-primary to-accent  overflow-hidden ">
-
+                    onMouseMove={handleMouseMove}
+                    className="min-h-screen w-full flex flex-wrap justify-center pt-[50px] bg-gradient-to-br from-primary to-accent overflow-y-auto"
+                    >
 
                         <div
                             className="pointer-events-none fixed z-10 w-[80px] h-[80px] bg-accent rounded-full blur-2xl transition-all duration-50"

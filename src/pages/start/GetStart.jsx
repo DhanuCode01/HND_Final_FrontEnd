@@ -6,7 +6,7 @@ import axios from 'axios';
 export default function GetStart(){
     const navigate = useNavigate();
 
-    function handleOnclick(e){
+/*     function handleOnclick(e){
         e.preventDefault();
         
 
@@ -36,17 +36,8 @@ export default function GetStart(){
                 toast.error("Please Login First ‼️")
             }
 
-                        
         
-
-       /*  if (token){
-            
-            console.log(token);
-        }else{
-            toast.error("Please Login & Ary Again ‼️")
-        } */
-        
-    }
+    } */
 
     return(
         <div className='h-full w-full m-4 flex justify-center items-center relative  '>
@@ -81,7 +72,8 @@ export default function GetStart(){
                                 <p className="text-lg tracking-wider font-light mb-4">Store</p>
 
                                 <Link
-                                    onClick={handleOnclick}
+                                    /* onClick={handleOnclick} */
+                                    to="/"
                                     className="mt-2 px-8 py-3 bg-green-600 hover:bg-green-700 active:scale-95 text-white font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-xl"
                                 >
                                     Get Started
